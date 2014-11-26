@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.example.karin.snowflakewake.R;
 
@@ -20,8 +21,11 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
     //create a new instance of AlarmModel
     private AlarmModel alarmDetails;
+
     private TextView snow;
+    private int valueSnow;
     private TextView minutes;
+    private int valueMinutes;
     static Dialog d;
 
     @Override
@@ -40,6 +44,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         snow = (TextView) findViewById(R.id.SnowAmount);
         minutes = (TextView) findViewById(R.id.TimeAmount);
         Button weatherSettings = (Button) findViewById(R.id.WeatherButton);
+        Button savealarm = (Button) findViewById(R.id.SaveAlarm);
 
         // what happens when you click on b?
         weatherSettings.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +52,15 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
             public void onClick(View view) {
                 // the dialog shows
                 show();
+            }
+        });
+
+        //instructions for when save button is clicked
+        savealarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateModelFromLayout();
+                finish();
             }
         });
     }
@@ -89,6 +103,10 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
                 snow.setText(String.valueOf(snowPick.getValue()));
                 minutes.setText(String.valueOf(minPick.getValue()));
                 // Close the dialog
+
+                valueSnow = snowPick.getValue();
+                valueMinutes = minPick.getValue();
+
                 d.dismiss();
             }
         });
@@ -102,8 +120,23 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
             }
         });
 
-        // Tillsist, Öppna dialog!
+        // Tillsist, Öppna dialog!F
         d.show();
+
+
+    }
+
+    private void updateModelFromLayout(){
+        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        alarmDetails.timeMinute = timePicker.getCurrentMinute();
+        alarmDetails.timeHour = timePicker.getCurrentHour(); //.intValue() (?)
+
+        alarmDetails.snowAmount = valueSnow;
+
+        alarmDetails.timeAmount = valueMinutes;
+
+        alarmDetails.isEnabled = true;
+
     }
 
 
