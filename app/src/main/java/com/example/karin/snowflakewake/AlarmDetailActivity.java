@@ -2,6 +2,7 @@ package com.example.karin.snowflakewake;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -60,8 +61,16 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
             @Override
             public void onClick(View view) {
                 updateModelFromLayout();
+
+                DBHelper dbHelper = new DBHelper(getApplicationContext());
+                if (alarmDetails.id < 0) {
+                    dbHelper.createAlarm(alarmDetails);
+                } else {
+                    dbHelper.updateAlarm(alarmDetails);
+                }
                 finish();
             }
+
         });
     }
 
