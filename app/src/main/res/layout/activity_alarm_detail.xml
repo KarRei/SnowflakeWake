@@ -1,0 +1,141 @@
+
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:isScrollContainer="true" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".AlarmDetailsActivity">
+
+        <TimePicker
+            android:id="@+id/alarm_details_time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/alarm_details_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/alarm_details_time_picker"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:ems="10"
+            android:hint="@string/details_alarm_name"/>
+
+        </RelativeLayout>
+
+
+</ScrollView> -->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAlarm"
+    android:id="@+id/action_settings">
+
+    <!--_____________ TEXTVIEWS  ________________-->
+
+    <!-- The amount of snow chosen by the user -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/SnowAmount"
+        android:layout_below="@+id/WeatherButton"
+        android:layout_alignLeft="@+id/WeatherButton"
+        android:layout_alignStart="@+id/WeatherButton" />
+
+    <!-- The time chosen by the user -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/TimeAmount"
+        android:layout_below="@+id/WeatherButton"
+        android:layout_alignRight="@+id/WeatherButton"
+        android:layout_alignEnd="@+id/WeatherButton"
+        />
+
+    <!-- cm of snow -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" cm"
+        android:id="@+id/cm"
+        android:layout_toRightOf="@id/SnowAmount"
+        android:layout_below="@id/WeatherButton"
+        />
+
+
+    <!-- minutes earlier -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" min"
+        android:id="@+id/minutes"
+        android:layout_toRightOf="@id/TimeAmount"
+        android:layout_below="@id/WeatherButton"
+        />
+
+    <!-- Title add alarm -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD ALARM"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        android:id="@+id/TextAddAlarm"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        />
+
+    <!--_____________ BUTTONS  ________________-->
+
+    <!-- Save Alarm -->
+    <Button
+        android:layout_width="260dp"
+        android:layout_height="80dp"
+        android:text="SAVE ALARM"
+        android:textSize="27dp"
+        android:textColor="#009900"
+        android:id="@+id/SaveAlarm"
+        android:layout_marginTop = "60dp"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:typeface="monospace"
+        />
+
+    <!-- Weather Settings -->
+    <Button
+        android:id="@+id/WeatherButton"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:text="WEATHER SETTINGS"
+        android:layout_centerHorizontal="true"
+        android:typeface="monospace"
+        android:layout_above="@id/SaveAlarm"
+        />
+
+    <!--_____________ TIMEPICKER  ________________-->
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_below="@id/TextAddAlarm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+</RelativeLayout>

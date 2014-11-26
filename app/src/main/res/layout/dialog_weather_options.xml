@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+
+    <!-- _________NUMBERPICKERS ___________-->
+
+    <!-- Snow -->
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SnowPicker"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="100dp"
+        />
+
+    <!-- Minutes -->
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/MinutePicker"
+        android:layout_toRightOf="@+id/MinutePicker"
+        android:layout_toLeftOf="@+id/MinutePicker"
+        android:layout_above="@+id/CancelButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="71dp" />
+
+
+    <!-- _________ BUTTONS ___________-->
+
+    <!-- Cancel -->
+    <Button
+        android:id="@+id/CancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_below="@+id/SnowPicker"
+        android:layout_alignLeft="@+id/SnowPicker"
+        android:layout_alignStart="@+id/SnowPicker"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <!-- OK -->
+    <Button
+        android:id="@+id/SetWeatherOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:layout_below="@id/MinutePicker"
+        android:layout_alignRight="@+id/MinutePicker"
+        android:layout_alignEnd="@+id/MinutePicker"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        />
+
+</RelativeLayout>
