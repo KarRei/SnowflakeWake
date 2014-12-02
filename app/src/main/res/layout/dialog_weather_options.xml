@@ -15,33 +15,38 @@
 
     <!-- Cancel -->
 
-    <!-- OK -->
+    <!-- WHOLE LAYOUT..
+    important: layout_weight = 1 splits screen in half -->
 
     <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:id="@+id/linearLayout"
-    android:orientation="horizontal">
-
-
-     <!-- SNOW  -->
+    android:orientation="horizontal"
+    android:layout_marginTop="25dp"
+    >
+     <!-- SNOW:  -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageSnow"
                 android:src="@drawable/snow"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 />
 
             <NumberPicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/snowPicker"
+                android:layout_gravity="center"
              />
 
         </LinearLayout>
@@ -50,97 +55,119 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_weight="1"
+
+            >
+
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageClock"
                 android:src="@drawable/clock"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center"
+                />
 
 
             <NumberPicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/minutePicker"
-            />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-        <!--<TableLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:transitionGroup="false">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageSnow"
-                    android:src="@drawable/snow"
-                    android:layout_gravity="center_vertical"
-
-
+                android:layout_gravity="center"
                 />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageClock"
-                    android:src="@drawable/clock"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_column="12"
-                    android:layout_gravity="center_vertical" />
-            </TableRow>
+        </LinearLayout>
+    </LinearLayout>
 
-            <TableRow
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearLayout"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+
+            />
+
+    </LinearLayout>
+
+    <!--<TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:transitionGroup="false">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageSnow"
+                android:src="@drawable/snow"
+                android:layout_gravity="center_vertical"
+
+
+            />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageClock"
+                android:src="@drawable/clock"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_column="12"
+                android:layout_gravity="center_vertical" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent"
+                android:id="@+id/"
+                android:layout_column="3">
 
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/"
-                    android:layout_column="3">
+            </LinearLayout>
+        </TableRow>
 
-                </LinearLayout>
-            </TableRow>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+            <NumberPicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/snowPicker"
+                android:layout_below="@+id/imageSnow"
+                android:layout_alignRight="@+id/imageSnow"
+                android:layout_alignEnd="@+id/imageSnow"
+                android:layout_column="1" />
+        </TableRow>
 
-                <NumberPicker
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/snowPicker"
-                    android:layout_below="@+id/imageSnow"
-                    android:layout_alignRight="@+id/imageSnow"
-                    android:layout_alignEnd="@+id/imageSnow"
-                    android:layout_column="1" />
-            </TableRow>
-
-        </TableLayout>
+    </TableLayout>
 
 
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_
+    android:layout_marginLeft="60dp"
+    android:layout_marginTop="20dp"
 -->
 
 </RelativeLayout>
