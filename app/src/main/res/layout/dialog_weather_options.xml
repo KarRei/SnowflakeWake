@@ -23,7 +23,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/linearLayout"
     android:orientation="horizontal"
-    android:layout_marginTop="25dp"
+    android:layout_marginTop="20dp"
     >
      <!-- SNOW:  -->
         <LinearLayout
@@ -45,9 +45,11 @@
             <NumberPicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/snowPicker"
+                android:id="@+id/SnowPicker"
                 android:layout_gravity="center"
+
              />
+
 
         </LinearLayout>
 
@@ -73,7 +75,7 @@
             <NumberPicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/minutePicker"
+                android:id="@+id/MinutePicker"
                 android:layout_gravity="center"
                 />
 
@@ -86,15 +88,23 @@
         android:id="@+id/linearLayout1"
         android:orientation="horizontal"
         android:layout_below="@id/linearLayout"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+
         >
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            
-
+            android:id= "@+id/CancelButton"
+            android:text="Cancel"
             />
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id= "@+id/SetWeatherOptions"
+            android:text="OK"
+            />
     </LinearLayout>
 
     <!--<TableLayout
