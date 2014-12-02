@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SnowflakeWake.iml" filepath="$PROJECT_DIR$/SnowflakeWake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TheRealFuckinThing.iml" filepath="$PROJECT_DIR$/TheRealFuckinThing.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
