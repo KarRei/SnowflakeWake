@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -98,7 +99,7 @@ public class AlarmListActivity extends ListActivity {
                 .setTitle("Delete set?")
                 .setCancelable(true)
                 .setNegativeButton("Cancel", null)
-                .setPositiveButton("Ok", new View.OnClickLongListener() {
+                .setPositiveButton("Ok", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Cancel Alarms
