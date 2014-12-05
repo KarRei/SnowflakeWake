@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -75,6 +76,8 @@ public class AlarmListActivity extends ListActivity {
     }
 
     public void setAlarmEnabled(long id, boolean isEnabled) {
+        AlarmManagerHelper.cancelAlarms(this);
+
         AlarmModel model = dbHelper.getAlarm(id);
         model.isEnabled = isEnabled;
         dbHelper.updateAlarm(model);
@@ -82,7 +85,7 @@ public class AlarmListActivity extends ListActivity {
         mAdapter.setAlarms(dbHelper.getAlarms());
         mAdapter.notifyDataSetChanged();
 
-       // AlarmManagerHelper.setAlarms(this);
+        AlarmManagerHelper.setAlarms(this);
     }
 
     public void startAlarmDetailsActivity(long id) {
@@ -98,7 +101,7 @@ public class AlarmListActivity extends ListActivity {
                 .setTitle("Delete set?")
                 .setCancelable(true)
                 .setNegativeButton("Cancel", null)
-                .setPositiveButton("Ok", new View.OnClickLongListener() {
+                .setPositiveButton("Ok", new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Cancel Alarms
@@ -112,6 +115,8 @@ public class AlarmListActivity extends ListActivity {
                         //Set the alarms
                         //AlarmManagerHelper.setAlarms(mContext);
                     }
+
+
                 }).show();
     }
 

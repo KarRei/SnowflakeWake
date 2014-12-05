@@ -1,11 +1,13 @@
 package com.example.karin.snowflakewake;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.karin.snowflakewake.AlarmContract.Alarm;
 import java.util.Calendar;
 import java.util.List;
 
@@ -37,26 +39,54 @@ public class AlarmManagerHelper extends BroadcastReceiver{
 
                 PendingIntent pIntent = createPendingIntent(context, alarm);
 
+                //Create calendar for the alarm
+                Calendar alarmCal = Calendar.getInstance();
+                alarmCal.set(Calendar.HOUR_OF_DAY, alarm.timeHour);
+                alarmCal.set(Calendar.MINUTE, alarm.timeMinute);
+                alarmCal.set(Calendar.SECOND, 00);
 
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY, alarm.timeHour);
-                calendar.set(Calendar.MINUTE, alarm.timeMinute);
-                calendar.set(Calendar.SECOND, 00);
-
-                final int nowDay = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+                //get values from this moment
                 final int nowHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
                 final int nowMinute = Calendar.getInstance().get(Calendar.MINUTE);
 
-                setAlarm(context, calendar, pIntent);
-                //boolean alarmSet = true;
+                //make ints for comparisons
+                int alarmDay = alarmCal.get(Calendar.DAY_OF_WEEK);
+                int alarmHour = alarmCal.get(Calendar.HOUR_OF_DAY);
+                int alarmMinute = alarmCal.get(Calendar.MINUTE);
 
+                //if time has not already passed today
+                if( (nowHour == alarmHour && nowMinute < alarmMinute) || nowHour < alarmHour)
+                {
+                    alarmCal.set(Calendar.DAY_OF_WEEK, alarmDay);//set alarmCal per usual
+                    setAlarm(context, alarmCal, pIntent);
 
+                }
+                else //change alarmCal to next day
+                {
+                    if(alarmDay == 7)
+                        alarmDay = 1;
+                    else alarmDay++;
+
+                    alarmCal.set(Calendar.DAY_OF_WEEK, alarmDay);
+
+                    setAlarm(context, alarmCal, pIntent);
+
+                }
 
             }
 
         }
 
+    }
 
+    @SuppressLint("NewApi")
+    private static void setAlarm(Context context, Calendar calendar, PendingIntent pIntent) {
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pIntent);
+        } else {
+            alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pIntent);
+        }
     }
 
 
@@ -88,11 +118,10 @@ public class AlarmManagerHelper extends BroadcastReceiver{
     private static PendingIntent createPendingIntent(Context context, AlarmModel model)
     {
         Intent intent = new Intent(context, AlarmService.class);
-        intent.putExtra(ID, model.id);
-        intent.putExtra(NAME, model.name);
-        intent.putExtra(TIME_HOUR, model.timeHour);
-        intent.putExtra(TIME_MINUTE, model.timeMinute);
-        intent.putExtra(TONE, model.alarmTone);
+        intent.putExtra(Alarm._ID, model.id);
+        intent.putExtra(Alarm.COLUMN_NAME_ALARM_NAME, model.name);
+        intent.putExtra(Alarm.COLUMN_NAME_ALARM_HOUR, model.timeHour);
+        intent.putExtra(Alarm.COLUMN_NAME_ALARM_MINUTE, model.timeMinute);
 
         return PendingIntent.getService(context, (int) model.id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }

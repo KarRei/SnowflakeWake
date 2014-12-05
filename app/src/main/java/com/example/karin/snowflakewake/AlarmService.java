@@ -19,6 +19,6 @@ public class AlarmService extends Service{
     public int onStartCommand(Intent intent, int flags, int startId)
     {
         AlarmManagerHelper.setAlarms(this);
-        return super.onStartCommand(intent, flags, startId)
+        return super.onStartCommand(intent, flags, startId);
     }
 }

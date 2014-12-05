@@ -105,7 +105,7 @@
         android:layout_width="260dp"
         android:layout_height="80dp"
         android:text="SAVE ALARM"
-        android:textSize="27dp"
+        android:textSize="27sp"
         android:textColor="#009900"
         android:id="@+id/SaveAlarm"
         android:layout_marginTop = "60dp"
@@ -123,8 +123,7 @@
         android:text="WEATHER SETTINGS"
         android:layout_centerHorizontal="true"
         android:typeface="monospace"
-        android:layout_above="@id/SaveAlarm"
-        />
+        android:layout_above="@id/SaveAlarm" />
 
     <!--_____________ TIMEPICKER  ________________-->
 
@@ -132,10 +131,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timePicker"
-        android:layout_below="@id/TextAddAlarm"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
+        android:layout_below="@id/TextAddAlarm"
         />
+
 
 </RelativeLayout>

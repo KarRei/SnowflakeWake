@@ -13,7 +13,9 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.example.karin.snowflakewake.R;
+
+import com.example.karin.snowflakewake.AlarmModel;
+import com.example.karin.snowflakewake.DBHelper;
 
 import org.w3c.dom.Text;
 
@@ -215,6 +217,24 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
                 finish();
                 break;
             }
+            //this is to delete existing alarms when going to this activity
+            case R.id.SaveAlarm: { //when Save Alarm button
+                updateModelFromLayout();
+                AlarmManagerHelper.cancelAlarms(this);
+
+                if(alarmDetails.id<0){
+                    dbHelper.createAlarm(alarmDetails);
+                }
+                else{
+                    dbHelper.updateAlarm(alarmDetails);
+                }
+
+                AlarmManagerHelper.setAlarms(this);
+                setResult(RESULT_OK);
+                finish();
+
+            }
+
         }
         return super.onOptionsItemSelected(item);
     }
