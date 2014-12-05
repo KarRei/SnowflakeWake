@@ -23,6 +23,18 @@
             android:label="@string/title_activity_alarm_detail" >
         </activity>
 
+        <!-- Make the alarms stay even if phone is turned off-->
+        <receiver android:name="com.example.karin.snowflakewake.AlarmManagerHelper">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.example.karin.snowflakewake.AlarmService" android:enabled="true" />
+
     </application>
 
 </manifest>
+
+<!-- boot permission-->
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
