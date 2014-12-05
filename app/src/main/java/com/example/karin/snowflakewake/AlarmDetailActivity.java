@@ -23,6 +23,9 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
     //create a new instance of AlarmModel
     private AlarmModel alarmDetails;
 
+    private DBHelper dbHelper = new DBHelper(this);
+
+    private TimePicker timePicker;
     private TextView snow;
     private int valueSnow;
     private TextView minutes;
@@ -42,6 +45,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         // textview & button first page
+        timePicker = (TimePicker) findViewById(R.id.timePicker);
         snow = (TextView) findViewById(R.id.SnowAmount);
         minutes = (TextView) findViewById(R.id.TimeAmount);
         Button weatherSettings = (Button) findViewById(R.id.WeatherButton);
@@ -56,18 +60,38 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
             }
         });
 
+        long id = getIntent().getExtras().getLong("id");
+
+        if (id == -1) {
+            alarmDetails = new AlarmModel();
+        } else {
+            alarmDetails = dbHelper.getAlarm(id);
+
+            timePicker.setCurrentMinute(alarmDetails.timeMinute);
+            timePicker.setCurrentHour(alarmDetails.timeHour);
+
+            snow.setText(String.valueOf(alarmDetails.snowAmount));
+            minutes.setText(String.valueOf(alarmDetails.timeAmount));
+            //edtName.setText(alarmDetails.name);
+
+        }
+
         //instructions for when save button is clicked
         savealarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 updateModelFromLayout();
 
                 DBHelper dbHelper = new DBHelper(getApplicationContext());
                 if (alarmDetails.id < 0) {
                     dbHelper.createAlarm(alarmDetails);
+                    Log.d("err", "XXXXXXXXXXXXX");
+
                 } else {
                     dbHelper.updateAlarm(alarmDetails);
                 }
+                setResult(RESULT_OK);
                 finish();
             }
 
@@ -136,7 +160,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
     }
 
     private void updateModelFromLayout(){
-        TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        //TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
         alarmDetails.timeMinute = timePicker.getCurrentMinute();
         alarmDetails.timeHour = timePicker.getCurrentHour(); //.intValue() (?)
 
@@ -145,6 +169,10 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         alarmDetails.timeAmount = valueMinutes;
 
         alarmDetails.isEnabled = true;
+
+        alarmDetails.name = "Heeej";
+
+        //Log.d("err", alarmDetails.timeHour);
 
     }
 
