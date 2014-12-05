@@ -114,16 +114,17 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         final NumberPicker snowPick = (NumberPicker) d.findViewById(R.id.SnowPicker);
         snowPick.setMaxValue(50);
         snowPick.setMinValue(0);
+        snowPick.setValue(snowPick.getValue());
         snowPick.setWrapSelectorWheel(true);
         snowPick.setOnValueChangedListener(this);
-
-        //snowPick.setValue();
 
         final NumberPicker minPick = (NumberPicker) d.findViewById(R.id.MinutePicker);
         minPick.setMaxValue(120);
         minPick.setMinValue(0);
+        minPick.setValue(minPick.getValue());
         minPick.setWrapSelectorWheel(true);
         minPick.setOnValueChangedListener(this);
+
 
         // What happens when u click on b?
         setOptions.setOnClickListener(new View.OnClickListener() {
@@ -149,9 +150,12 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
                     minutes.setText("");
                     snow.setText("");
                 }
+
+
                 d.dismiss();
             }
         });
+
 
         // what happens when u click on
         cancel.setOnClickListener(new View.OnClickListener() {
