@@ -1,58 +1,218 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:id="@+id/action_settings">
 
 
     <!-- _________NUMBERPICKERS ___________-->
 
     <!-- Snow -->
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/SnowPicker"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="100dp"
-        />
 
     <!-- Minutes -->
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/MinutePicker"
-        android:layout_toRightOf="@+id/MinutePicker"
-        android:layout_toLeftOf="@+id/MinutePicker"
-        android:layout_above="@+id/CancelButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="71dp" />
 
 
     <!-- _________ BUTTONS ___________-->
 
     <!-- Cancel -->
-    <Button
-        android:id="@+id/CancelButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:layout_below="@+id/SnowPicker"
-        android:layout_alignLeft="@+id/SnowPicker"
-        android:layout_alignStart="@+id/SnowPicker"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        />
 
-    <!-- OK -->
-    <Button
-        android:id="@+id/SetWeatherOptions"
-        android:layout_width="wrap_content"
+    <!-- WHOLE LAYOUT..
+    important: layout_weight = 1 splits screen in half -->
+
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearLayout"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    >
+     <!-- SNOW:  -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:id="@+id/imageSnow"
+                android:src="@drawable/snow"
+                android:layout_gravity="center"
+                android:layout_weight="1" />
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" cm"
+                    android:id="@+id/textCm"
+                    android:layout_toRightOf="@+id/SnowPicker"
+                    android:layout_centerInParent="true" />
+
+                <NumberPicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/SnowPicker"
+                    android:gravity="center"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout><![CDATA[
+
+
+            />
+
+
+        ]]>
+        </LinearLayout>
+
+        <!-- CLOCK   -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+
+            >
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageClock"
+                android:src="@drawable/clock"
+                android:layout_gravity="center"
+                />
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" min"
+                    android:id="@+id/textMin"
+                    android:layout_toRightOf="@+id/MinutePicker"
+                    android:layout_centerInParent="true" />
+
+                <NumberPicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/MinutePicker"
+                    android:gravity="center"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="OK"
-        android:layout_below="@id/MinutePicker"
-        android:layout_alignRight="@+id/MinutePicker"
-        android:layout_alignEnd="@+id/MinutePicker"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        />
+        android:id="@+id/linearLayout1"
+        android:orientation="horizontal"
+        android:layout_below="@id/linearLayout"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id= "@+id/CancelButton"
+            android:text="Cancel"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id= "@+id/SetWeatherOptions"
+            android:text="OK"
+            />
+    </LinearLayout>
+
+    <!--<TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:transitionGroup="false">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageSnow"
+                android:src="@drawable/snow"
+                android:layout_gravity="center_vertical"
+
+
+            />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageClock"
+                android:src="@drawable/clock"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_column="12"
+                android:layout_gravity="center_vertical" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/"
+                android:layout_column="3">
+
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <NumberPicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/snowPicker"
+                android:layout_below="@+id/imageSnow"
+                android:layout_alignRight="@+id/imageSnow"
+                android:layout_alignEnd="@+id/imageSnow"
+                android:layout_column="1" />
+        </TableRow>
+
+    </TableLayout>
+
+
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_
+    android:layout_marginLeft="60dp"
+    android:layout_marginTop="20dp"
+-->
 
 </RelativeLayout>
