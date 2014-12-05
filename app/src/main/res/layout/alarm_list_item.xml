@@ -33,19 +33,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
             android:layout_below="@+id/alarm_item_time"
-            android:text="Snow Amount"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_for_snow"
+            android:layout_toRightOf="@+id/snow_amount"
+            android:layout_below="@+id/alarm_item_time"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="3dp"
+            android:text="cm"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/time_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/snow_amount"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="100dp"
+            android:layout_below="@+id/alarm_item_time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_for_time"
+            android:layout_toRightOf="@+id/time_amount"
             android:layout_below="@+id/alarm_item_time"
             android:layout_marginLeft="4dp"
-            android:text="Time Amount"
+            android:layout_marginTop="3dp"
+            android:text="min"
             android:textAppearance="?android:attr/textAppearanceSmall" />
+
 
         <!--<ToggleButton
             android:id="@+id/alarm_item_toggle"
@@ -58,9 +81,11 @@
             android:id="@+id/alarm_item_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true" />
-
+            android:layout_alignParentEnd="true" />
+        <!-- android:onClick="onSwitchClicked"
+            android:layout_marginBottom="15dp"-->
     </RelativeLayout>
 
 </FrameLayout>

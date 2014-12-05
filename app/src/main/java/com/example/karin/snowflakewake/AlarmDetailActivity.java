@@ -92,6 +92,9 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
             snow.setText(String.valueOf(alarmDetails.snowAmount));
             minutes.setText(String.valueOf(alarmDetails.timeAmount));
+
+            valueMinutes = alarmDetails.timeAmount;
+            valueSnow = alarmDetails.snowAmount;
             //edtName.setText(alarmDetails.name);
 
         }

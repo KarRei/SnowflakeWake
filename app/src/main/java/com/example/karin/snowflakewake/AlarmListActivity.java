@@ -28,8 +28,6 @@ public class AlarmListActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d("err", "shuu breee");
-
         mContext = this;
 
         requestWindowFeature(Window.FEATURE_ACTION_BAR);

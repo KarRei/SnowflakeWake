@@ -106,6 +106,8 @@ public class DBHelper extends SQLiteOpenHelper {
             return populateModel(c);
         }
 
+        db.close();
+
         return null;
     }
 
