@@ -29,17 +29,19 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
     private DBHelper dbHelper = new DBHelper(this);
 
     private TimePicker timePicker;
+
     private TextView snow;
     private int valueSnow;
 
     private TextView minutes;
     private int valueMinutes;
 
+    //lilla texten efter siffrorna som dyker upp efter dialogrutan
     private TextView cm;
     private TextView min;
 
-    static Dialog d;
-    TimePicker timepicker;
+   // static Dialog d;
+   // TimePicker timepicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +57,12 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
         // timepicker
 
-        timepicker = (TimePicker) findViewById(R.id.timePicker);
-        timepicker.setIs24HourView(true);
-        timepicker.setCurrentHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
+        timePicker = (TimePicker) findViewById(R.id.timePicker);
+        timePicker.setIs24HourView(true);
+        timePicker.setCurrentHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
 
         // textview & button first page
-        timePicker = (TimePicker) findViewById(R.id.timePicker);
+//        timePicker = (TimePicker) findViewById(R.id.timePicker);
         snow = (TextView) findViewById(R.id.SnowAmount);
         minutes = (TextView) findViewById(R.id.TimeAmount);
         Button weatherSettings = (Button) findViewById(R.id.WeatherButton);
@@ -101,7 +103,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
                 updateModelFromLayout();
 
-                DBHelper dbHelper = new DBHelper(getApplicationContext());
+                //DBHelper dbHelper = new DBHelper(getApplicationContext());
                 if (alarmDetails.id < 0) {
                     dbHelper.createAlarm(alarmDetails);
                     Log.d("err", "XXXXXXXXXXXXX");
@@ -196,24 +198,6 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
     }
 
-    private void updateModelFromLayout(){
-        //TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
-        alarmDetails.timeMinute = timePicker.getCurrentMinute();
-        alarmDetails.timeHour = timePicker.getCurrentHour(); //.intValue() (?)
-
-        alarmDetails.snowAmount = valueSnow;
-
-        alarmDetails.timeAmount = valueMinutes;
-
-        alarmDetails.isEnabled = true;
-
-        alarmDetails.name = "Heeej";
-
-        //Log.d("err", alarmDetails.timeHour);
-
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -235,5 +219,21 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         return super.onOptionsItemSelected(item);
     }
 
+    private void updateModelFromLayout(){
+        //TimePicker timePicker = (TimePicker) findViewById(R.id.timePicker);
+        alarmDetails.timeMinute = timePicker.getCurrentMinute();
+        alarmDetails.timeHour = timePicker.getCurrentHour(); //.intValue() (?)
+
+        alarmDetails.snowAmount = valueSnow;
+
+        alarmDetails.timeAmount = valueMinutes;
+
+        alarmDetails.isEnabled = true;
+
+        alarmDetails.name = "Heeej";
+
+        //Log.d("err", alarmDetails.timeHour);
+
+    }
 
 }

@@ -1,7 +1,6 @@
 package com.example.karin.snowflakewake;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -75,10 +74,10 @@ public class AlarmListAdapter extends BaseAdapter {
         txtName.setText(model.name);
 
         TextView txtSnowAmount = (TextView) view.findViewById(R.id.snow_amount);
-        txtSnowAmount.setText(model.snowAmount);
+        txtSnowAmount.setText(String.valueOf(model.snowAmount));
 
         TextView txtTimeAmount = (TextView) view.findViewById(R.id.time_amount);
-        txtTimeAmount.setText(model.timeAmount);
+        txtTimeAmount.setText(String.valueOf(model.timeAmount));
 
         ToggleButton btnToggle = (ToggleButton) view.findViewById(R.id.alarm_item_toggle);
         btnToggle.setChecked(model.isEnabled);
@@ -87,7 +86,7 @@ public class AlarmListAdapter extends BaseAdapter {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                ((ListActivity) mContext).setAlarmEnabled(((Long) buttonView.getTag()).longValue(), isChecked);
+                ((AlarmListActivity) mContext).setAlarmEnabled(((Long) buttonView.getTag()).longValue(), isChecked);
             }
         });
 
@@ -96,7 +95,15 @@ public class AlarmListAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View view) {
-                ((ListActivity) mContext).startAlarmDetailsActivity(((Long) view.getTag()).longValue());
+                ((AlarmListActivity) mContext).startAlarmDetailsActivity(((Long) view.getTag()).longValue());
+            }
+        });
+
+        view.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+        public boolean onLongClick(View view) {
+                ((AlarmListActivity) mContext).deleteAlarm(((Long) view.getTag()).longValue());
+                return true;
             }
         });
 
