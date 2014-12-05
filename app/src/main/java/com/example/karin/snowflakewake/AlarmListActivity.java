@@ -2,12 +2,15 @@ package com.example.karin.snowflakewake;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.app.ListActivity;
 
@@ -17,7 +20,7 @@ import android.app.ListActivity;
 public class AlarmListActivity extends ListActivity {
     private DBHelper dbHelper = new DBHelper(this);
     private AlarmListAdapter mAdapter;
-    //private Context mContext;
+    private Context mContext;
 
 
     @Override
@@ -26,7 +29,7 @@ public class AlarmListActivity extends ListActivity {
 
         Log.d("err", "shuu breee");
 
-        //mContext = this;
+        mContext = this;
 
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
 
@@ -90,16 +93,16 @@ public class AlarmListActivity extends ListActivity {
 
     public void deleteAlarm(long id) {
         final long alarmId = id;
-       /* AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Please confirm")
                 .setTitle("Delete set?")
                 .setCancelable(true)
                 .setNegativeButton("Cancel", null)
-                .setPositiveButton("Ok", new OnClickListener() {
+                .setPositiveButton("Ok", new View.OnClickLongListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Cancel Alarms
-                        AlarmManagerHelper.cancelAlarms(mContext);
+                        //AlarmManagerHelper.cancelAlarms(mContext);
                         //Delete alarm from DB by id
                         dbHelper.deleteAlarm(alarmId);
                         //Refresh the list of the alarms in the adaptor
@@ -107,9 +110,9 @@ public class AlarmListActivity extends ListActivity {
                         //Notify the adapter the data has changed
                         mAdapter.notifyDataSetChanged();
                         //Set the alarms
-                        AlarmManagerHelper.setAlarms(mContext);
+                        //AlarmManagerHelper.setAlarms(mContext);
                     }
-                }).show(); */
+                }).show();
     }
 
 }
