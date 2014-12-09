@@ -85,7 +85,7 @@
         android:layout_below="@id/WeatherButton"
         />
 
-    <!-- Title add alarm -->
+    <!-- Title add alarm
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_margin="10dp"
-        />
+        /> -->
 
     <!--_____________ BUTTONS  ________________-->
 
@@ -130,10 +130,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timePicker"
-        android:layout_below="@id/TextAddAlarm"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
         />
+    <!-- android:layout_below="@id/TextAddAlarm" -->
+
+    <View
+        android:id="@+id/divider2"
+        style="@style/Divider"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/timePicker" />
 
 </RelativeLayout>
