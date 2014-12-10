@@ -93,6 +93,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public long updateAlarm(AlarmModel model){
         ContentValues values = populateContent(model);
         return getWritableDatabase().update(Alarm.TABLE_NAME, values, Alarm._ID + " = ?", new String[] { String.valueOf(model.id)});
+
     }
 
     public AlarmModel getAlarm(long id) {
