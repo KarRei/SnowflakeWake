@@ -4,6 +4,8 @@
     <string name="app_name">SnowflakeWake</string>
     <string name="details_alarm_name">Alarm Name</string>
     <string name="action_settings">Settings</string>
+    <string name="weather_settings_button">Weather Settings</string>
+    <string name="save_alarm_button">Save</string>
     <string name="title_activity_alarm_detail">AlarmDetailActivity</string>
 
 </resources>
