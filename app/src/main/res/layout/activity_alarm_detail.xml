@@ -133,7 +133,7 @@
                 android:layout_width="270dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:hint="@string/weather_settings_button"
+                android:text="Weather Settings"
                 />
 
             <LinearLayout
@@ -150,25 +150,29 @@
                     android:gravity="center_horizontal"
                     >
 
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="cm"
-                            android:id="@+id/centimeter"
-                            />
+                    <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/imageMiniSnow"
+                            android:visibility="invisible"
+                            android:src="@drawable/snowmini"
+                            android:layout_marginRight="2dp"
+                        />
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="snow"
+                            android:text=" "
                             android:id="@+id/SnowAmount"
                             />
 
-                    <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:id="@+id/imageMiniSnow"
-                            android:src="@drawable/snowmini" />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:id="@+id/centimeter"
+                            />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -179,25 +183,27 @@
                     android:layout_weight="1"
                     >
 
-                    <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="min"
-                            android:id="@+id/minutes"
-                            />
-
                     <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:id="@+id/imageMiniClock"
                             android:src="@drawable/clockmini"
+                            android:visibility="invisible"
+                            android:layout_marginRight="2dp"
+                    />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" "
+                            android:id="@+id/TimeAmount"
                             />
 
                     <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="time"
-                            android:id="@+id/TimeAmount"
+                            android:text=""
+                            android:id="@+id/minutes"
                             />
                 </LinearLayout>
             </LinearLayout>

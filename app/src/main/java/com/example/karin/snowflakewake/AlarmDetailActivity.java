@@ -3,12 +3,14 @@ package com.example.karin.snowflakewake;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -20,14 +22,14 @@ import org.w3c.dom.Text;
 import java.text.DateFormat;
 import java.util.Calendar;
 
+import static android.view.View.*;
+
 
 public class AlarmDetailActivity extends Activity implements NumberPicker.OnValueChangeListener {
 
     //create a new instance of AlarmModel
     private AlarmModel alarmDetails;
-
     private DBHelper dbHelper = new DBHelper(this);
-
     private TimePicker timePicker;
 
     private TextView snow;
@@ -40,8 +42,11 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
     private TextView cm;
     private TextView min;
 
+    ImageView snowpicture;
+    ImageView clockpicture;
    // static Dialog d;
    // TimePicker timepicker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +60,13 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         getActionBar().setTitle("ADD NEW ALARM");
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // timepicker
+        snowpicture = (ImageView) findViewById(R.id.imageMiniSnow);
+        clockpicture = (ImageView) findViewById(R.id.imageMiniClock);
 
+        snowpicture.setVisibility(View.INVISIBLE);
+        clockpicture.setVisibility(View.INVISIBLE);
+
+        // timepicker
         timePicker = (TimePicker) findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
         timePicker.setCurrentHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
@@ -72,7 +82,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         min = (TextView) findViewById(R.id.minutes);
 
         // what happens when you click on b?
-        weatherSettings.setOnClickListener(new View.OnClickListener() {
+        weatherSettings.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 // the dialog shows
@@ -100,7 +110,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         }
 
         //instructions for when save button is clicked
-        savealarm.setOnClickListener(new View.OnClickListener() {
+        savealarm.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -139,7 +149,6 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         Button cancel = (Button) d.findViewById(R.id.CancelButton);
 
         // Numberpicker
-
         final NumberPicker snowPick = (NumberPicker) d.findViewById(R.id.SnowPicker);
         snowPick.setMaxValue(50);
         snowPick.setMinValue(0);
@@ -154,23 +163,24 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         minPick.setWrapSelectorWheel(true);
         minPick.setOnValueChangedListener(this);
 
-
         // What happens when u click on b?
-        setOptions.setOnClickListener(new View.OnClickListener() {
+        setOptions.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Set the value from the np in the textfield tv
                 if((snowPick.getValue() != 0) || (minPick.getValue() != 0))  {
-                    snow.setText(String.valueOf(snowPick.getValue()));
 
-                    minutes.setText(String.valueOf(minPick.getValue()));
-                    // Close the dialog
+                    snow.setText(String.valueOf(snowPick.getValue()));  // set text from snowpicker
+                    minutes.setText(String.valueOf(minPick.getValue()));    // set text from minutepicker
 
-                    valueSnow = snowPick.getValue();
-                    valueMinutes = minPick.getValue();
+                    valueSnow = snowPick.getValue();    // set value of snowpicker
+                    valueMinutes = minPick.getValue();  // set value of minutepicker
 
                     min.setText(" min");
                     cm.setText(" cm");
+
+                    snowpicture.setVisibility(View.VISIBLE);
+                    clockpicture.setVisibility(View.VISIBLE);
                 }
                 else
                 {
@@ -178,8 +188,10 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
                     min.setText("");
                     minutes.setText("");
                     snow.setText("");
-                }
 
+                    snowpicture.setVisibility(View.INVISIBLE);
+                    clockpicture.setVisibility(View.INVISIBLE);
+                }
 
                 d.dismiss();
             }
@@ -187,7 +199,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
 
         // what happens when u click on
-        cancel.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Dialogen stängs bara ner
