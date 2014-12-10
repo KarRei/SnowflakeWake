@@ -97,6 +97,8 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
             valueSnow = alarmDetails.snowAmount;
             //edtName.setText(alarmDetails.name);
 
+            dbHelper.close();
+
         }
 
         //instructions for when save button is clicked
