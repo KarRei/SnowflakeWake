@@ -41,9 +41,7 @@
     tools:context=".AlarmDetailActivity"
     android:id="@+id/action_settings">
 
-    <!--_____________ TEXTVIEWS  ________________-->
-
-    <!-- The amount of snow chosen by the user -->
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +50,6 @@
         android:layout_alignLeft="@+id/WeatherButton"
         android:layout_alignStart="@+id/WeatherButton" />
 
-    <!-- The time chosen by the user -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,7 +60,6 @@
         android:layout_alignEnd="@+id/WeatherButton"
         />
 
-    <!-- cm of snow -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,7 +70,6 @@
         />
 
 
-    <!-- minutes earlier -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,62 +79,153 @@
         android:layout_below="@id/WeatherButton"
         />
 
-    <!-- Title add alarm
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD ALARM"
-        android:textSize="40dp"
-        android:textAlignment="center"
-        android:id="@+id/TextAddAlarm"
-        android:layout_centerHorizontal="true"
+        -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        /> -->
+        android:layout_centerHorizontal="true">
 
-    <!--_____________ BUTTONS  ________________-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight = "0.2"
+            >
+            <TimePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timePicker"
+                android:layout_gravity="center"
+                >
+            </TimePicker>
 
-    <!-- Save Alarm -->
-    <Button
-        android:layout_width="260dp"
-        android:layout_height="80dp"
-        android:text="SAVE ALARM"
-        android:textSize="27dp"
-        android:textColor="#009900"
-        android:id="@+id/SaveAlarm"
-        android:layout_marginTop = "60dp"
-        android:layout_marginBottom="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        />
+            <EditText
+                android:id="@+id/alarm_details_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="@string/details_alarm_name"
+                />
 
-    <!-- Weather Settings -->
-    <Button
-        android:id="@+id/WeatherButton"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
-        android:text="WEATHER SETTINGS"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@id/SaveAlarm"
-        />
+            <View
+                style="@style/Divider"
+                android:layout_marginTop="10dp"
+               />
 
-    <!--_____________ TIMEPICKER  ________________-->
+            </LinearLayout>
 
-    <TimePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/timePicker"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        />
-    <!-- android:layout_below="@id/TextAddAlarm" -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight = "0.7"
+            >
 
-    <View
-        android:id="@+id/divider2"
-        style="@style/Divider"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/timePicker" />
+            <Button
+                android:id="@+id/WeatherButton"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:hint="@string/weather_settings_button"
+                />
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="cm"
+                            android:id="@+id/centimeter"
+                            />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="snow"
+                            android:id="@+id/SnowAmount"
+                            />
+
+                    <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:id="@+id/imageMiniSnow"
+                            android:src="@drawable/snowmini" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="min"
+                            android:id="@+id/minutes"
+                            />
+
+                    <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:id="@+id/imageMiniClock"
+                            android:src="@drawable/clockmini"
+                            />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="time"
+                            android:id="@+id/TimeAmount"
+                            />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:orientation="horizontal"
+            android:gravity="center"
+
+            >
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id= "@+id/CancelAlarm"
+                android:text="Cancel"
+                />
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:id= "@+id/SaveAlarm"
+                android:text="Save"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>
