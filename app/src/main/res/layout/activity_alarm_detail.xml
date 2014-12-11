@@ -86,14 +86,17 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        >
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_weight = "0.2"
+            android:layout_weight = "0"
             >
             <TimePicker
                 android:layout_width="wrap_content"
@@ -110,11 +113,13 @@
                 android:layout_gravity="center"
                 android:ems="10"
                 android:hint="@string/details_alarm_name"
+                android:layout_marginTop="20dp"
                 />
 
             <View
                 style="@style/Divider"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
+
                />
 
             </LinearLayout>
@@ -124,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_weight = "0.7"
+            android:layout_weight = "0.5"
             >
 
             <Button
@@ -133,6 +138,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:text="Weather Settings"
+                android:layout_marginTop="10dp"
                 />
 
             <LinearLayout
@@ -207,7 +213,10 @@
                 </LinearLayout>
             </LinearLayout>
 
-
+            <View
+                style="@style/Divider"
+                android:layout_marginTop="20dp"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -216,6 +225,7 @@
             android:layout_weight="0.6"
             android:orientation="horizontal"
             android:gravity="center"
+            android:layout_marginBottom="20dp"
 
             >
 
