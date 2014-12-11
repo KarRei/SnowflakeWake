@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -37,6 +38,8 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
     private TextView minutes;
     private int valueMinutes;
+
+    private EditText edtName;
 
     //lilla texten efter siffrorna som dyker upp efter dialogrutan
     private TextView cm;
@@ -78,8 +81,11 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
         Button weatherSettings = (Button) findViewById(R.id.WeatherButton);
         Button savealarm = (Button) findViewById(R.id.SaveAlarm);
 
+
         cm = (TextView) findViewById(R.id.centimeter);
         min = (TextView) findViewById(R.id.minutes);
+
+        edtName = (EditText) findViewById(R.id.alarm_details_name);
 
         // what happens when you click on b?
         weatherSettings.setOnClickListener(new OnClickListener() {
@@ -105,7 +111,10 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
             valueMinutes = alarmDetails.timeAmount;
             valueSnow = alarmDetails.snowAmount;
-            //edtName.setText(alarmDetails.name);
+
+            edtName.setText(alarmDetails.name);
+
+            dbHelper.close();
 
         }
 
@@ -119,7 +128,6 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
                 //DBHelper dbHelper = new DBHelper(getApplicationContext());
                 if (alarmDetails.id < 0) {
                     dbHelper.createAlarm(alarmDetails);
-                    Log.d("err", "XXXXXXXXXXXXX");
 
                 } else {
                     dbHelper.updateAlarm(alarmDetails);
@@ -245,9 +253,7 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
         alarmDetails.isEnabled = true;
 
-        alarmDetails.name = "Heeej";
-
-        //Log.d("err", alarmDetails.timeHour);
+        alarmDetails.name = edtName.getText().toString();
 
     }
 
