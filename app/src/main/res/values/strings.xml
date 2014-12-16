@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">SnowflakeWake</string>
+    <string name="app_name">SnowFlakeWake</string>
     <string name="details_alarm_name">Alarm Name</string>
     <string name="action_settings">Settings</string>
     <string name="weather_settings_button">Weather Settings</string>
