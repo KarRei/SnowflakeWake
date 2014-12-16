@@ -160,7 +160,7 @@
                             android:layout_height="match_parent"
                             android:id="@+id/imageMiniSnow"
                             android:visibility="invisible"
-                            android:src="@drawable/snowmini"
+                            android:src="@drawable/snow"
                             android:layout_marginRight="2dp"
                         />
 
@@ -192,7 +192,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:id="@+id/imageMiniClock"
-                            android:src="@drawable/clockmini"
+                            android:src="@drawable/clock"
                             android:visibility="invisible"
                             android:layout_marginRight="2dp"
                     />
@@ -230,7 +230,7 @@
             >
 
             <Button
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:id= "@+id/CancelAlarm"
                 android:text="Cancel"

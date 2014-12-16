@@ -255,6 +255,9 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
         alarmDetails.name = edtName.getText().toString();
 
+
+        //snowpicture.setVisibility(View.VISIBLE);
+        //clockpicture.setVisibility(View.VISIBLE);
     }
 
 }
