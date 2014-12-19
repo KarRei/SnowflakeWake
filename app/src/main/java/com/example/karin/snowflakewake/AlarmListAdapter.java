@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -79,7 +80,7 @@ public class AlarmListAdapter extends BaseAdapter {
         TextView txtTimeAmount = (TextView) view.findViewById(R.id.time_amount);
         txtTimeAmount.setText(String.valueOf(model.timeAmount));
 
-        ToggleButton btnToggle = (ToggleButton) view.findViewById(R.id.alarm_item_toggle);
+        Switch btnToggle = (Switch) view.findViewById(R.id.alarm_item_toggle);
         btnToggle.setChecked(model.isEnabled);
         btnToggle.setTag(Long.valueOf(model.id));
         btnToggle.setOnCheckedChangeListener(new OnCheckedChangeListener() {
