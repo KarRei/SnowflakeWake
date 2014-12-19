@@ -36,6 +36,8 @@
 
         <service android:name="com.example.karin.snowflakewake.AlarmService" android:enabled="true" />
 
+        <activity android:name="com.example.karin.snowflakewake.AlarmScreen" />
+
     </application>
 
 

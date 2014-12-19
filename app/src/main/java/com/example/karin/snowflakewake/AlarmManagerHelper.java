@@ -18,7 +18,7 @@ public class AlarmManagerHelper extends BroadcastReceiver{
     // du är theActivity, frukosten är resources, personalen är context
 
     @Override
-    public void onRecieve(Context context, Intent intent)
+    public void onReceive(Context context, Intent intent)
     {
         setAlarms(context);
     }
