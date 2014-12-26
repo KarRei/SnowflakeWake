@@ -80,11 +80,12 @@ public class AlarmListActivity extends ListActivity {
         model.isEnabled = isEnabled;
         dbHelper.updateAlarm(model);
 
-        mAdapter.setAlarms(dbHelper.getAlarms());
-        mAdapter.notifyDataSetChanged();
+       // mAdapter.setAlarms(dbHelper.getAlarms());
+       // mAdapter.notifyDataSetChanged();
 
         AlarmManagerHelper.setAlarms(this);
     }
+
 
     public void startAlarmDetailsActivity(long id) {
         Intent intent = new Intent(this, AlarmDetailActivity.class);
