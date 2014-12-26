@@ -275,6 +275,9 @@ public class AlarmDetailActivity extends Activity implements NumberPicker.OnValu
 
         alarmDetails.name = edtName.getText().toString();
 
+        // to set the alarm tone to static sound. To be changed if user chosen tone is enabeled.
+        alarmDetails.alarmTone = "/res/raw/ring.mp3";
+
 
         //snowpicture.setVisibility(View.VISIBLE);
         //clockpicture.setVisibility(View.VISIBLE);

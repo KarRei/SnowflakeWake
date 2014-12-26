@@ -17,6 +17,12 @@ public class AlarmManagerHelper extends BroadcastReceiver{
     // Context = hotellpersonal som kommer med frukost till dig
     // du är theActivity, frukosten är resources, personalen är context
 
+    public static final String ID = "id";
+    public static final String NAME = "name";
+    public static final String TIME_HOUR = "timeHour";
+    public static final String TIME_MINUTE = "timeMinute";
+    public static final String TONE = "alarmTone";
+
     @Override
     public void onReceive(Context context, Intent intent)
     {
@@ -122,6 +128,7 @@ public class AlarmManagerHelper extends BroadcastReceiver{
         intent.putExtra(Alarm.COLUMN_NAME_ALARM_NAME, model.name);
         intent.putExtra(Alarm.COLUMN_NAME_ALARM_HOUR, model.timeHour);
         intent.putExtra(Alarm.COLUMN_NAME_ALARM_MINUTE, model.timeMinute);
+        intent.putExtra(TONE, model.alarmTone); // if alarmTone is of type Uri, must add .toString().
 
         return PendingIntent.getService(context, (int) model.id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
